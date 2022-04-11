@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>grid</title>
+        <style>
+            .grid-container {
+                display: grid;
+                /* 부모에 grid 설정해준다 */
+                width: 600px;  
+                grid-template-rows: 70px 200px 70px;
+                /* 행을 70px, 200px, 70px 로 그려주라는 말 */
+                grid-template-columns: repeat(3, 1fr);
+                /* 열은 같은 크기로 3개 만들겠다 */
+                grid-gap: 10px;
+                /* 간격이 10px씩 해라 */
+            }
+
+            .grid-item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #0169ff;
+                color: #fff;
+            }
+
+            .grid-item.header {
+                /* 열이 하나로 합쳐진 모양 */
+                grid-column: 1 / -1;
+                /* 경계선 번호. 처음(1) 부터 끝까지(-1) 영역 차지한다 */
+                /* grid-column-start: 1; grid-column-end: 4; */
+                grid-row-start: 1;
+                grid-row-end: 2;
+            }
+
+            .grid-item.nav {
+                grid-column-start: 1;
+                grid-column-end: 2;
+                grid-row-start: 2;
+                grid-row-end: 3;
+            }
+
+            .grid-item.main {
+                grid-column-start: 2;
+                grid-column-end: 3;
+                grid-row-start: 2;
+                grid-row-end: 3;
+            }
+
+            .grid-item.aside {
+                grid-column-start: 3;
+                grid-column-end: 4;
+                grid-row-start: 2;
+                grid-row-end: 3;
+            }
+
+            .grid-item.footer {
+                grid-column: 1 / -1;
+                grid-row-start: 3;
+                grid-row-end: 4;
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+        <div class="grid-container">
+            <div class="grid-item header">Header</div>
+            <div class="grid-item nav">Nav</div>
+            <div class="grid-item main">Main Content</div>
+            <div class="grid-item aside">aside</div>
+            <div class="grid-item footer">Footer</div>
+        </div>
+    </body>
+</html>

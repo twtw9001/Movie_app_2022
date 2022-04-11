@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>화살표함수</title>
+        <style>
+        </style>
+    </head>
+
+    <body>
+        <script>
+            // 선언적함수 >> 함수의 앞이나 뒤나 어디서든 호출 가능(함수명이 있으니까)
+            compute (10, 100);
+
+            function compute(a, b) {
+                var x = a;
+                var y = b;
+                var result = x / y;
+                console.log(result);
+            }
+            // compute();
+
+
+            // 익명함수
+            // compute2(); >> 결과 안나옴. 이름이 없기 때문에 함수 선언후 호출할 수 있다
+            var compute2 = function(a, b){
+                var x = a;
+                var y = b;
+                var result2 = x * y;
+                console.log(result2);
+            }
+            compute2(0.5, 10);
+
+
+            // 즉시실행함수 >> 선언과 동시에 실행. 재호출 안됨.
+            (function(a){
+                var sum = a;
+                console.log(sum);
+            })(10);
+
+            var instant = (function(){
+                console.log('즉시 실행 함수');
+            })(); // >> 전달하는 인자값 없을때
+
+
+
+            // 매개변수의 갯수가 정해지지 않은 함수
+            // artuments 객체는 인자값을 저장해주는 객체 >> 이거 옛날문법인데.. ㅎㅎ
+            function showSubject(){
+                for (var i = 0; i < arguments.length; i++) {
+                    console.log(arguments[i]);
+                }
+            }
+            showSubject('html', 'css', 'js', 'jquery');
+
+
+
+
+            // 화살표함수
+            // function 키워드 생략, {} 생략, return 생략(한줄일 경우)
+            var theFnc = function(a, b){
+                return a * b;
+            }
+            console.log(theFnc(2, 5)); // >> 이런 기본함수를
+
+            var theFnc2 = (a, b) => a * b;
+            console.log(theFnc2(2, 5));
+
+
+
+            // 기본함수 , 선언적함수
+            function theFnc3(c, d) {
+                var sum = c + d;
+                return sum;
+            }
+            console.log(theFnc3(10, 5));
+
+            // 익명함수
+            var theFnc3 = function(c, d) {
+                var sum = c + d;
+                return sum;
+            }
+
+            // 화살표함수
+            var theFnc3 = (c, d) => {
+                var sum = c + d;
+                return sum
+            }
+
+            console.log(theFnc3(10, 5));
+
+
+        </script>
+    </body>
+</html>

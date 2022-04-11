@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ES6 변수 : let, const</title>
+        <style>
+        </style>
+    </head>
+
+    <body>
+        <script>
+            /*
+
+            */
+            // var num = 10;
+            // var num = 20;
+            // document.write(num);
+            // var 변수는 중복 선언 가능 
+            // 같은 이름의 변수가 있는지 없는지 확인하기 힘듦
+
+            // let num = 10;
+            // let num = 20;
+            // document.write(num); //에러남 
+                                // Uncaught SyntaxError: Identifier 'num' has already been declared
+                                // let은 중복 선언이 안되기 때문에
+
+
+            const DIVISION_VALUE = 100;
+            // const DIVISION_VALUE = 200; // 얘도 중복선언 불가능
+            // DIVISION_VALUE = 300; // 상수라 값 변경할 수 없음
+                                // 다른 프로그램 언어들에서도 const는 상수
+
+            // let cm = prompt("cm를 입력하세요", "");
+            // let m = cm / DIVISION_VALUE;
+            // document.write(m + "m입니다");
+            // 이런식으로 사용함
+
+
+
+            var kor = 90; // 전역변수
+
+            function getScore() {
+                kor = 100; // 전역변수
+                console.log(kor); // 100
+            }
+            getScore();
+            console.log(kor); //100
+
+
+
+            var kor = 90; // 전역변수
+
+            function getScore() {
+                var kor = 100; // 지역변수
+                console.log(kor); // 100
+            }
+            getScore();
+            console.log(kor); //90
+
+
+
+
+            var num = 10; //전역변수
+            {
+                var num = 20; //전역변수
+                console.log(num); //20
+            }
+            console.log(num);// 20
+
+            // var는 함수를 기준으로 전역, 지역변수가 되는데
+
+
+
+            let num_02 = 100; //전역변수
+            {
+                let num_02 = 20; //지역변수
+                console.log(num_02); //20
+            }
+            console.log(num_02);// 20
+
+
+            const num_03 = 10; //전역변수
+            {
+                const num_03 = 30; //지역변수
+                console.log(num_03); //20
+            }
+            console.log(num_03);// 20
+
+
+            // let, const는 함수 아니라 그냥 블록이어도 지역변수
+
+            var num = 70;
+            if (num === 70) {
+                var sum = 50;
+            }
+            console.log(sum);
+
+
+            let num2 = 90;
+            if (num2 === 90) {
+                let sum = 100;
+            }
+            console.log(sum); // 에러
+
+        </script>
+    </body>
+</html>
