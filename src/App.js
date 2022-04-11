@@ -16,7 +16,7 @@ function App() {
     // </>    >> 이렇게쓰면 화면에 이게 다 나오는데,
               // 우리가 해야 되는건 메뉴 클릭하면 전체화면 바뀌게
 
-    <BrowserRouter> 
+    <BrowserRouter basename={process.env.PUBLIC_URL}> 
       <Navigation></Navigation>
       <Routes>
         <Route path='/' element={<Home />}></Route>
